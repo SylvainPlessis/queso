@@ -80,7 +80,7 @@ public:
   virtual double gammaSample   (double a, double b)        const = 0;
 
   //! Samples values from a Dirichlet distribution.
-  virtual void dirichletSample (size_t K, double a[], double theta[]) const = 0;
+  virtual void dirichletSample (size_t K, const double a[], double theta[]) const = 0;
 
 
   //@}
