@@ -115,4 +115,11 @@ RngGsl::gammaSample(double a, double b) const
   return gsl_ran_gamma(m_rng,a,b);
 }
 
+void 
+RngGsl::dirichletSample (size_t K, const double a[], double theta[]) const
+{
+   gsl_ran_dirichlet(m_rng,K,a,theta);
+   return;
+}
+
 }  // End namespace QUESO

@@ -102,6 +102,14 @@ public:
    * (domain): [0,infinity).*/
   double   gammaSample   (double a, double b)        const;
 
+  //! Samples values from a Dirichlet distribution.
+  /*! The Dirichlet distribution is a multivariate
+   *  distribution of \f$K\f$ variables \f$x_i\f$ such as 
+   *  \f$\sum_{i=1}^Kx_i = 1\f$ and \f$\forall i \in [1,K], 0\leq x_i\leq 1\f$
+   */
+  void dirichletSample (size_t K, const double a[], double theta[]) const;
+
+
   //! GSL random number generator.
   const gsl_rng* rng           () const;
 
