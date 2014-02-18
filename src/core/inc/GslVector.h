@@ -153,6 +153,9 @@ public:
   
   //! This function returns a random variate from the inverse gamma distribution with vector parameters alpha and beta. 
   void         cwSetInverseGamma(const GslVector& alpha, const GslVector& beta);
+
+  //! This function returns a random variate from the Dirichlet distribution of K variables with vector parameters a.
+  void         cwSetDirichlet(size_t K, const GslVector& a);
   
   //! This function concatenates GslVector v1 and GslVector v2 into  \c this.
   void         cwSetConcatenated(const GslVector& v1, const GslVector& v2);

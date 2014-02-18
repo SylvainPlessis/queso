@@ -553,6 +553,25 @@ GslVector::cwSetGamma(const GslVector& a, const GslVector& b)
 }
 
 void
+GslVector::cwSetDirichlet(size_t K, const GslVector& a)
+{
+  UQ_FATAL_TEST_MACRO(this->sizeLocal()%K != 0,       // bool
+                      m_env.worldRank(),              // to the world
+                      "GslVector::cwSetDirichlet()",  // me
+                      "incompatible K with size");    // error
+
+  UQ_FATAL_TEST_MACRO(this->sizeLocal() != a.sizeLocal(), // bool
+                      m_env.worldRank(),                  // to the world
+                      "GslVector::cwSetDirichlet()",      // me
+                      "incompatible a size");             // error
+
+  for (unsigned int i = 0; i < this->sizeLocal(); i += K) {
+    m_env.rngObject()->dirichletSample(K,&a[i],&(*this)[i]);
+  }
+  return;
+}
+
+void
 GslVector::cwSetInverseGamma(const GslVector& alpha, const GslVector& beta)
 {
   UQ_FATAL_TEST_MACRO(this->sizeLocal() != alpha.sizeLocal(),

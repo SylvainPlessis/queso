@@ -99,6 +99,10 @@ public:
    * for various types of inverse scale (aka rate) parameters. Uses  
    * boost::math::gamma_distribution<double>  gamma_dist(a,b). Support (domain): [0,infinity).*/
   double   gammaSample   (double a, double b)        const;
+
+  //! Samples values from a Dirichlet distribution.
+  //! \todo implement me
+  void dirichletSample (size_t K, const double a[], double theta[]) const;
 	
 private:  
   //! Random number generator from class boost::mt19937. 

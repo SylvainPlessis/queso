@@ -103,4 +103,21 @@ RngBoost::gammaSample(double a, double b) const
   return quantile(gamma_dist, zeroone());
 }
 
+// -------------------------------------------------
+void 
+RngBoost::dirichletSample (size_t K, const double a[], double theta[]) const
+{
+  double sum(0.L);
+  for(unsigned int i = 0; i < K; i++)
+  {
+     theta[i] = this->gammaSample(a[i],1.);
+     sum += theta[i];
+  }
+  for(unsigned int i = 0; i < K; i++)
+  {
+     theta[i] /= sum;
+  }
+  return;
+}
+
 }  // End namespace QUESO
