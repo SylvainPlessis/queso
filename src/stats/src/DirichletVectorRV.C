@@ -70,11 +70,14 @@ DirichletVectorRV<V,M>::DirichletVectorRV(
 
 
   
-  m_pdf        = NULL; //no joint
+  m_pdf        = new DirichletJointPdf<V,M>(m_prefix.c_str(),
+                                            m_imageSet,
+                                            alpha,
+                                            K);
   m_realizer   = new DirichletVectorRealizer<V,M>(m_prefix.c_str(),
-                                                    m_imageSet,
-                                                    alpha,
-                                                    K);
+                                                  m_imageSet,
+                                                  alpha,
+                                                  K);
   m_subCdf     = NULL; // ? sense for Dirichlet
   m_unifiedCdf = NULL; // ? sense for Dirichlet
   m_mdf        = NULL; // ? sense for Dirichlet
@@ -125,7 +128,7 @@ DirichletVectorRV<V,M>::DirichletVectorRV(
         sum += alpha[j];
      }
 
-     UQ_FATAL_TEST_MACRO(std::abs(sum - 1.) < eps,
+     UQ_FATAL_TEST_MACRO(std::abs(sum - 1.) >= eps,
                           m_env.worldRank(),
                          "In DirichletVectorRV<V,M>::constructor()",
                          "invalid input: Dirichlet distribution needs K values to sum to 1");                
@@ -154,7 +157,10 @@ DirichletVectorRV<V,M>::DirichletVectorRV(
    
   }
   
-  m_pdf        = NULL; //no joint
+  m_pdf        = new DirichletJointPdf<V,M>(m_prefix.c_str(),
+                                            m_imageSet,
+                                            alpha,
+                                            K);
   m_realizer   = new DirichletVectorRealizer<V,M>(m_prefix.c_str(),
                                                     m_imageSet,
                                                     beta,

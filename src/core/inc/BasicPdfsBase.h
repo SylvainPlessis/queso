@@ -63,6 +63,9 @@ public:
   
   //! TODO: Actual value of the Gamma PDF (calculated via either Boost or GSL libraries). See template specialization.
   virtual double gammaPdfActualValue(double x, double a,     double b   ) const = 0;
+
+  //! Actual value of the Dirichlet PDF (calculated via either Boost or GSL libraries). See template specialization.
+  virtual double DirichletPdfActualValue(double x[], double a[], size_t K) const = 0;
   //@}
 protected:
   int m_worldRank;

@@ -76,4 +76,10 @@ BasicPdfsGsl::gammaPdfActualValue(double x, double a, double b) const
   return gsl_ran_gamma_pdf(x,a,b);
 }
 
+double 
+BasicPdfsGsl::DirichletPdfActualValue(double x[], double a[], size_t K) const
+{
+  return gsl_ran_dirichlet_pdf(K,a,x);
+}
+
 }  // End namespace QUESO

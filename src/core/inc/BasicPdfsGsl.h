@@ -62,6 +62,9 @@ public:
   
   //! TODO: Actual value of the Gamma PDF.
   double gammaPdfActualValue(double x, double a,     double b   ) const;
+
+  //! Actual value of the Dirichlet PDF.
+  double DirichletPdfActualValue(double x[], double a[], size_t K) const;
   //@}
 protected:
 };

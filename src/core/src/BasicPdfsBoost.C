@@ -73,4 +73,15 @@ BasicPdfsBoost::gammaPdfActualValue(double x, double a, double b) const
   return 0.;
 }
 
+double
+BasicPdfsBoost::DirichletPdfActualValue(double x[], double a[], size_t K) const
+{
+  UQ_FATAL_TEST_MACRO(true,
+                      m_worldRank,
+                      "BasicPdfsBoost::DirichletPdfActualValue()",
+                      "code incomplete yet");
+  return 0.;
+}
+
+
 }  // End namespace QUESO
