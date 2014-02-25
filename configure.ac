@@ -158,6 +158,11 @@ DX_PS_FEATURE(OFF)
 
 DX_INIT_DOXYGEN([queso],[doxygen/queso.dox],[docs])
 
+dnl-----------------------------------------------
+dnl Generate files for unit and regression testing
+dnl-----------------------------------------------
+AC_CONFIG_FILES(test/test_DirichletSampling/test_DirichletInversionSample.sh, [chmod +x test/test_DirichletSampling/test_DirichletInversionSample.sh])
+
 #--------------------------
 # Checks for code coverage
 #-------------------------

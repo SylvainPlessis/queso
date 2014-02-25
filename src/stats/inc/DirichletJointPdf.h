@@ -80,7 +80,7 @@ public:
   void   setLogOfNormalizationFactor    (double value) const;
   
   //! Computes the logarithm of the normalization factor. See template specialization.
-  double computeLogOfNormalizationFactor(unsigned int numSamples, bool m_logOfNormalizationFactor) const = 0;
+  double computeLogOfNormalizationFactor(unsigned int numSamples, bool m_logOfNormalizationFactor) const;
   
   //@}
 protected:

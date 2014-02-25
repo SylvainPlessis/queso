@@ -27,7 +27,8 @@ check_PROGRAMS += test_operator
 check_PROGRAMS += test_inf_gaussian
 check_PROGRAMS += test_inf_options
 check_PROGRAMS += test_SequenceOfVectorsErase
-check_PROGRAMS += test_DirichletSampling
+check_PROGRAMS += test_DirichletSample
+check_PROGRAMS += test_DirichletInversionSample
 
 LIBS         = -L$(top_builddir)/src/ -lqueso
 
@@ -79,7 +80,8 @@ test_operator_SOURCES = $(top_srcdir)/test/test_infinite/test_operator.C
 test_inf_gaussian_SOURCES = $(top_srcdir)/test/test_infinite/test_inf_gaussian.C
 test_inf_options_SOURCES = $(top_srcdir)/test/test_infinite/test_inf_options.C
 test_SequenceOfVectorsErase_SOURCES = $(top_srcdir)/test/test_SequenceOfVectors/test_SequenceOfVectorsErase.C
-test_DirichletSampling_SOURCES = $(top_srcdir)/test/test_DirichletSampling/Dirichlet_sampling.C
+test_DirichletSample_SOURCES = $(top_srcdir)/test/test_DirichletSampling/Dirichlet_sampling.C
+test_DirichletInversionSample_SOURCES = $(top_srcdir)/test/test_DirichletSampling/Dirichlet_inversion.C
 
 # Files to freedom stamp
 srcstamp =
@@ -128,7 +130,8 @@ TESTS += $(top_builddir)/test/test_operator
 TESTS += $(top_builddir)/test/test_inf_gaussian
 TESTS += $(top_builddir)/test/test_inf_options
 TESTS += $(top_builddir)/test/test_SequenceOfVectorsErase
-TESTS += $(top_builddir)/test/test_DirichletSampling
+TESTS += $(top_builddir)/test/test_DirichletSample
+TESTS += $(top_builddir)/test/test_DirichletSampling/test_DirichletInversionSample.sh
 
 XFAIL_TESTS = $(top_builddir)/test/test_SequenceOfVectorsErase
 

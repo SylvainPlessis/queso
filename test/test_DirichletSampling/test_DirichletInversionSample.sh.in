@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PROG="@top_builddir@/test/test_DirichletInversionSample"
+
+INPUT="@top_srcdir@/test/test_DirichletSampling/input_files/dirichlet_inversion.txt"
+
+$PROG $INPUT
+

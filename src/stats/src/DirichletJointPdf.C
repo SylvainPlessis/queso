@@ -81,19 +81,25 @@ DirichletJointPdf<V,M>::actualValue(
                       m_env.worldRank(),
                       "DirichletJointPdf<V,M>::actualValue()",
                       "This joint pdf do not support multiple Dirichlet");
+  double x[domainVector.sizeLocal()];
+  double a[domainVector.sizeLocal()];
+  for(unsigned int i = 0; i < domainVector.sizeLocal(); i++)
+  {
+        x[i] = domainVector[i];
+        a[i] = m_a[i];
+  }
 
-  double result = m_env.basicPdfs()->DirichletPdfActualValue(domainVector[i],m_a[i],m_K);
-    if ((m_env.subDisplayFile()) && (m_env.displayVerbosity() >= 99)) {
+  double result = m_env.basicPdfs()->DirichletPdfActualValue(x,a,m_K);
+  if ((m_env.subDisplayFile()) && (m_env.displayVerbosity() >= 99)) {
       *m_env.subDisplayFile() << "In DirichletJointPdf<V,M>::lnValue()"
                               << ", m_normalizationStyle = "      << m_normalizationStyle
-                              << ": domainVector[" << i << "] = " << domainVector[i]
-                              << ", m_a[" << i << "] = "          << m_a[i]
-                              << ", m_b[" << i << "] = "          << m_b[i]
-                              << ", log(pdf)= "                   << aux
+                              << ": domainVector[0] = " << domainVector[0]
+                              << ", m_a[0] = "          << m_a[0]
+                              << ", m_K = "             << m_K
                               << std::endl;
     }
   
-  return result,
+  return result;
 }
 //--------------------------------------------------
 template<class V, class M>
@@ -130,6 +136,13 @@ DirichletJointPdf<V,M>::computeLogOfNormalizationFactor(unsigned int numSamples,
   }
 
   return value;
+}
+
+template<class V, class M>
+void   
+DirichletJointPdf<V,M>::setNormalizationStyle(unsigned int value) const
+{
+  return;
 }
 
 }  // End namespace QUESO

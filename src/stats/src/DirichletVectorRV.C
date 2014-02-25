@@ -24,6 +24,7 @@
 
 #include <queso/DirichletVectorRealizer.h>
 #include <queso/DirichletVectorRV.h>
+#include <queso/DirichletJointPdf.h>
 #include <queso/GslVector.h>
 #include <queso/GslMatrix.h>
 

@@ -93,6 +93,7 @@ BUILT_SOURCES += BetaVectorRealizer.h
 BUILT_SOURCES += ConcatenatedJointPdf.h
 BUILT_SOURCES += ConcatenatedVectorRV.h
 BUILT_SOURCES += ConcatenatedVectorRealizer.h
+BUILT_SOURCES += DirichletJointPdf.h
 BUILT_SOURCES += DirichletVectorRV.h
 BUILT_SOURCES += DirichletVectorRealizer.h
 BUILT_SOURCES += ExponentialMatrixCovarianceFunction.h
@@ -339,6 +340,8 @@ ConcatenatedJointPdf.h: $(top_srcdir)/src/stats/inc/ConcatenatedJointPdf.h
 ConcatenatedVectorRV.h: $(top_srcdir)/src/stats/inc/ConcatenatedVectorRV.h
 	$(AM_V_GEN)rm -f $@ && $(LN_S) $< $@
 ConcatenatedVectorRealizer.h: $(top_srcdir)/src/stats/inc/ConcatenatedVectorRealizer.h
+	$(AM_V_GEN)rm -f $@ && $(LN_S) $< $@
+DirichletJointPdf.h: $(top_srcdir)/src/stats/inc/DirichletJointPdf.h
 	$(AM_V_GEN)rm -f $@ && $(LN_S) $< $@
 DirichletVectorRV.h: $(top_srcdir)/src/stats/inc/DirichletVectorRV.h
 	$(AM_V_GEN)rm -f $@ && $(LN_S) $< $@
