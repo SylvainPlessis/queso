@@ -39,8 +39,7 @@ public:
        double misfit(0.L);
        for(unsigned int i = 0; i < K; i++)
        {
-         misfit += ((domainVector[i] - br[i])*(domainVector[i] - br[i])/dbr[i]) *
-                   ((domainVector[i] - br[i])*(domainVector[i] - br[i])/dbr[i]);
+         misfit += (domainVector[i] - br[i]) * (domainVector[i] - br[i]) / (dbr[i] * dbr[i]);
        }
     // 3) Return log likelihood
 
